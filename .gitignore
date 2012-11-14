@@ -11,3 +11,15 @@
 *.lai
 *.la
 *.a
+
+# Visual Studio Stuff
+*.suo
+*.pdb
+*ipch/
+*Win32/
+*Debug/
+*Release/
+
+# Mac Stuff
+*.DS_Store
+*bin/
