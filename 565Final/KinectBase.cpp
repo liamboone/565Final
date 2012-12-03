@@ -169,3 +169,8 @@ float * KinectBase::getDepthAsImage()
 	} 
 	return m_depthRGBA;
 }
+
+unsigned short * KinectBase::getDepth()
+{
+	return m_depthD16;
+}

@@ -16,6 +16,8 @@
 #include <cudaGLHelper.h>
 #include "cutil_inline.h"
 
+extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height );
+extern "C" void cudaInit();
 
 using namespace std;
 
@@ -37,6 +39,7 @@ int main( int argc, char* argv[] )
     cout << "CUDA device [" << deviceProps.name << "] has " << 
 		deviceProps.multiProcessorCount << " Multi-Processors" << endl;
 
+
 	initGL(&argc, argv);
 
 	theJumpoff = new KinectBase();
@@ -45,6 +48,8 @@ int main( int argc, char* argv[] )
 		cout << "NO BUENO" << endl;
 	else
 		cout << "CONNECTION SUCCESSFUL" << endl;
+
+	cudaInit();
 
 	glutMainLoop( );
 
@@ -80,7 +85,15 @@ void initGL( int * argc, char * argv[] )
 void display()
 {
 	theJumpoff->NextFrame();
-	glDrawPixels( 320, 240, GL_RGBA, GL_FLOAT, theJumpoff->getDepthAsImage() );
-    glutSwapBuffers();
+	dim3 dimBlock(16, 16, 1);
+    dim3 dimGrid(320 / dimBlock.x, 240 / dimBlock.y, 1);
+	float4 * depthRGBA = new float4[320*240];
+
+	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), 320, 240 );
+
+	glDrawPixels( 320, 240, GL_RGBA, GL_FLOAT, depthRGBA );
+    
+	delete[] depthRGBA;
+	glutSwapBuffers();
 	glutPostRedisplay();
 }

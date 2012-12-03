@@ -12,6 +12,7 @@ public:
 	HRESULT ConnectKinect();
 	bool NextFrame();
 	float * getDepthAsImage();
+	unsigned short * getDepth();
 
 	static const NUI_IMAGE_RESOLUTION cDepthResolution = NUI_IMAGE_RESOLUTION_320x240;
 
