@@ -5,7 +5,6 @@
 
 # Compiled Dynamic libraries
 *.so
-*.dylib
 
 # Compiled Static libraries
 *.lai
@@ -14,12 +13,6 @@
 
 # Visual Studio Stuff
 *.suo
-*.pdb
-*ipch/
-*Win32/
-*Debug/
-*Release/
 
 # Mac Stuff
 *.DS_Store
-*bin/
