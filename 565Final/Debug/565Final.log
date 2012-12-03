@@ -1,4 +1,4 @@
-﻿Build started 12/3/2012 3:25:12 AM.
+﻿Build started 12/3/2012 3:33:29 AM.
      1>Project "C:\Users\Liam\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\565Final.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -9,11 +9,12 @@
        CudaBuild:
        Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt KinectBase.cpp main.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-         KinectBase.cpp
-     1>c:\users\liam\documents\github\565final\565final\kinectbase.cpp(163): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
+         Note: including windows.h
+         Note: including math.h
+         Note: including assert.h
+         Note: including time.h
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\Win32" Kinect10.lib cudart.lib cufft.lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\565Final.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.lib" /MACHINE:X86 Debug\kinect_kernels.cu.obj
          Debug\KinectBase.obj
@@ -29,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.29

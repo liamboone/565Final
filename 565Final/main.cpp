@@ -5,6 +5,17 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
+// CUDA standard includes
+#include <cuda_runtime_api.h>
+#include <cuda_gl_interop.h>
+
+// CUDA helper functions
+#include <sdkHelper.h>
+#include <rendercheck_gl.h>
+#include <cudaHelper.h>
+#include <cudaGLHelper.h>
+#include "cutil_inline.h"
+
 
 using namespace std;
 
@@ -15,6 +26,17 @@ void display( );
 
 int main( int argc, char* argv[] )
 {
+	int devID;
+    cudaDeviceProp deviceProps;
+    
+    // use command-line specified CUDA device, otherwise use device with highest Gflops/s
+    devID = findCudaGLDevice(argc, argv);
+
+    // get number of SMs on this GPU
+    checkCudaErrors(cudaGetDeviceProperties(&deviceProps, devID));
+    cout << "CUDA device [" << deviceProps.name << "] has " << 
+		deviceProps.multiProcessorCount << " Multi-Processors" << endl;
+
 	initGL(&argc, argv);
 
 	theJumpoff = new KinectBase();
