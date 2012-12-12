@@ -1,47 +1,54 @@
-﻿Build started 12/3/2012 4:17:05 AM.
-     1>Project "C:\Users\Liam\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
+﻿Build started 12/12/2012 6:19:00 PM.
+     1>Project "C:\Users\wjboone\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\565Final.unsuccessfulbuild" because "AlwaysCreate" was specified.
        AddCudaCompileDeps:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /I. /FIcuda_runtime.h /c C:\Users\Liam\Documents\GitHub\565Final\565Final\kinect_kernels.cu 
+       Skipping target "AddCudaCompileDeps" because all output files are up-to-date with respect to the input files.
        AddCudaCompilePropsDeps:
-       Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
+         Found "CudaToolkitCustomDir".
+         Found "AdditionalDeps".
+         Found "CompileOut".
+         Found "Include".
+         Found "Keep".
+         Found "KeepDir".
+         Found "NvccCompilation".
+         Found "NvccPath".
+         Found "RequiredIncludes".
+         Found "TargetMachinePlatform".
+         Found "CInterleavedPTX".
+         Found "CodeGeneration".
+         Found "GPUDebugInfo".
+         Found "MaxRegCount".
+         Found "PtxAsOptionV".
+         Found "AdditionalCompilerOptions".
+         Found "Defines".
+         Found "Emulation".
+         Found "HostDebugInfo".
+         Found "FastMath".
+         Found "Optimization".
+         Found "Runtime".
+         Found "RuntimeChecks".
+         Found "TypeInfo".
+         Found "Warning".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
        CudaBuild:
-         Compiling CUDA source file kinect_kernels.cu...
-         cmd.exe /C "C:\Users\Liam\AppData\Local\Temp\tmp6781de865a5b40df90b634501f6d4efa.cmd"
-         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\Liam\Documents\GitHub\565Final\565Final\kinect_kernels.cu"
-         
-         C:\Users\Liam\Documents\GitHub\565Final\565Final>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\Liam\Documents\GitHub\565Final\565Final\kinect_kernels.cu" 
-         kinect_kernels.cu
-         tmpxft_00000e1c_00000000-5_kinect_kernels.compute_20.cudafe1.gpu
-         tmpxft_00000e1c_00000000-9_kinect_kernels.compute_20.cudafe2.gpu
-         kinect_kernels.cu
-         tmpxft_00000e1c_00000000-3_kinect_kernels.compute_10.cudafe1.gpu
-         tmpxft_00000e1c_00000000-13_kinect_kernels.compute_10.cudafe2.gpu
-         kinect_kernels.cu
-         tmpxft_00000e1c_00000000-0_kinect_kernels.compute_30.cudafe1.gpu
-         tmpxft_00000e1c_00000000-17_kinect_kernels.compute_30.cudafe2.gpu
-         kinect_kernels.cu
-         kinect_kernels.cu
-     1>ptxas C : /Users/Liam/AppData/Local/Temp/tmpxft_00000e1c_00000000-4_kinect_kernels.compute_10.ptx, line 192; warning : Double is not supported. Demoting to float
-         kinect_kernels.cu
-         tmpxft_00000e1c_00000000-5_kinect_kernels.compute_20.cudafe1.cpp
-         tmpxft_00000e1c_00000000-29_kinect_kernels.compute_20.ii
+       Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
        ClCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\Win32" Kinect10.lib cudart.lib cufft.lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\565Final.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.lib" /MACHINE:X86 Debug\kinect_kernels.cu.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\wjboone\Documents\GitHub\565Final\565Final\freeglut\lib /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\Win32" Kinect10.lib cudart.lib cufft.lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\565Final.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.lib" /MACHINE:X86 Debug\kinect_kernels.cu.obj
          Debug\KinectBase.obj
          Debug\main.obj
      1>KinectBase.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-         565Final.vcxproj -> C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.exe
+         565Final.vcxproj -> C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.exe;#1" /manifest Debug\565Final.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe;#1" /manifest Debug\565Final.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\565Final.unsuccessfulbuild".
          Touching "Debug\565Final.lastbuildstate".
-     1>Done Building Project "C:\Users\Liam\Documents\GitHub\565Final\565Final\565Final.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\wjboone\Documents\GitHub\565Final\565Final\565Final.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:09.65
+Time Elapsed 00:00:00.65

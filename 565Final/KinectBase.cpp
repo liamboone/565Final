@@ -1,4 +1,5 @@
 #include "KinectBase.h"
+#include <cmath>
 
 // Safe release for interfaces
 template<class Interface>
@@ -110,6 +111,11 @@ HRESULT KinectBase::ConnectKinect()
     }
 
     m_nuiSensor->NuiSkeletonTrackingDisable();
+
+	m_nuiSensor->NuiCameraElevationSetAngle( 15 );
+
+	float DegreesToRadians = 3.14159265359f / 180.0f;
+	m_xyScale = tanf(NUI_CAMERA_DEPTH_NOMINAL_HORIZONTAL_FOV * DegreesToRadians * 0.5f) / (m_depthWidth * 0.5f);
 
     return hr;
 }

@@ -13,8 +13,11 @@ public:
 	bool NextFrame();
 	float * getDepthAsImage();
 	unsigned short * getDepth();
+	long getWidth() { return m_depthWidth; }
+	long getHeight() { return m_depthHeight; }
+	float getXYScale() { return m_xyScale; }
 
-	static const NUI_IMAGE_RESOLUTION cDepthResolution = NUI_IMAGE_RESOLUTION_320x240;
+	static const NUI_IMAGE_RESOLUTION cDepthResolution = NUI_IMAGE_RESOLUTION_640x480;
 
 private:
 	INuiSensor * m_nuiSensor;
@@ -28,6 +31,7 @@ private:
 	unsigned short * m_depthD16;
 
 	float * m_depthRGBA;
+	float m_xyScale;
 };
 
 

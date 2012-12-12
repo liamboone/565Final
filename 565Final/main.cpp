@@ -16,8 +16,8 @@
 #include <cudaGLHelper.h>
 #include "cutil_inline.h"
 
-extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height );
-extern "C" void cudaInit();
+extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height, float xyscale, int target );
+extern "C" void cudaInit( unsigned int width, unsigned int height );
 
 using namespace std;
 
@@ -25,9 +25,30 @@ KinectBase * theJumpoff;
 
 void initGL( int * argc, char * argv[] );
 void display( );
+void display2( );
+void reshape (int w, int h);
+void keyboard( unsigned char key, int, int );
+
+
+
+int dwidth;
+int dheight;
+int player = 0;
 
 int main( int argc, char* argv[] )
 {
+	theJumpoff = new KinectBase();
+
+	if( theJumpoff->ConnectKinect() == E_FAIL )
+		cout << "NOPE" << endl;
+	else
+		cout << "CONNECTION SUCCESSFUL" << endl;
+
+	dwidth = theJumpoff->getWidth();
+	dheight = theJumpoff->getHeight();
+
+	cout << "Depth Stream: [" << dwidth << ", " << dheight << "]" << endl;
+
 	int devID;
     cudaDeviceProp deviceProps;
     
@@ -41,15 +62,7 @@ int main( int argc, char* argv[] )
 
 
 	initGL(&argc, argv);
-
-	theJumpoff = new KinectBase();
-
-	if( theJumpoff->ConnectKinect() == E_FAIL )
-		cout << "NO BUENO" << endl;
-	else
-		cout << "CONNECTION SUCCESSFUL" << endl;
-
-	cudaInit();
+	cudaInit( dwidth, dheight );
 
 	glutMainLoop( );
 
@@ -57,18 +70,26 @@ int main( int argc, char* argv[] )
 
 	return 0;
 }
+int window1, window2;
 
 void initGL( int * argc, char * argv[] )
 {
 	glutInit(argc, argv);
     glutInitDisplayMode(GLUT_RGBA | GL_DOUBLE);
-    glutInitWindowSize(320, 240);
-    glutCreateWindow("565Final");
+    glutInitWindowSize(dwidth, dheight);
+    window1 = glutCreateWindow("565Final");
+
+	glutDisplayFunc(display2);
+	glutReshapeFunc(reshape);
+
+    window2 = glutCreateWindow("Viewer");
     
 	glutDisplayFunc(display);
+	glutReshapeFunc(reshape);
+	glutKeyboardFunc(keyboard);
 
     glewInit();
-    glViewport(0, 0, 320, 240);
+    glViewport(0, 0, dwidth, dheight);
 	
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 
@@ -81,17 +102,69 @@ void initGL( int * argc, char * argv[] )
 	glDisable(GL_DEPTH_TEST);
 }
 
+void display2(void)
+{
+	glClearColor(1.0, 0.0, 0.0, 1.0);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLoadIdentity();
+	printf("display2\n");
+	glFlush();
+}
+
+void reshape (int w, int h)
+{
+	glViewport(0,0,(GLsizei)w,(GLsizei)h);
+	glutPostRedisplay();
+}
+
+void keyboard( unsigned char key, int, int )
+{
+	switch (key) 
+	{
+	   case '1':
+		   cout << "Tracking player 1" << endl;
+		   player = 1;
+		   break;
+	   case '2':
+		   cout << "Tracking player 2" << endl;
+		   player = 2;
+		   break;
+	   case '3':
+		   cout << "Tracking player 3" << endl;
+		   player = 3;
+		   break;
+	   case '4':
+		   cout << "Tracking player 4" << endl;
+		   player = 4;
+		   break;
+	   case '5':
+		   cout << "Tracking player 5" << endl;
+		   player = 5;
+		   break;
+	   case '6':
+		   cout << "Tracking player 6" << endl;
+		   player = 6;
+		   break;
+	   case '7':
+		   cout << "Tracking player 7" << endl;
+		   player = 7;
+		   break;
+	   default:
+		   player = 0;
+		   break;
+	}
+}
 
 void display()
 {
 	theJumpoff->NextFrame();
 	dim3 dimBlock(16, 16, 1);
-    dim3 dimGrid(320 / dimBlock.x, 240 / dimBlock.y, 1);
-	float4 * depthRGBA = new float4[320*240];
+    dim3 dimGrid(dwidth / dimBlock.x, dheight / dimBlock.y, 1);
+	float4 * depthRGBA = new float4[dwidth*dheight];
 
-	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), 320, 240 );
+	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), dwidth, dheight, theJumpoff->getXYScale(), player );
 
-	glDrawPixels( 320, 240, GL_RGBA, GL_FLOAT, depthRGBA );
+	glDrawPixels( dwidth, dheight, GL_RGBA, GL_FLOAT, depthRGBA );
     
 	delete[] depthRGBA;
 	glutSwapBuffers();

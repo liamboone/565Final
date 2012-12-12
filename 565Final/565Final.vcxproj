@@ -52,14 +52,14 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(CudaToolkitLibDir);C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\$(PlatformName);C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\wjboone\Documents\GitHub\565Final\565Final\freeglut\lib;$(CudaToolkitLibDir);C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\$(PlatformName);C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\$(PlatformName)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Kinect10.lib;cudart.lib;cufft.lib;freeglut.lib;glew32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <CudaCompile>
       <Include>./;C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc;C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc</Include>
-      <CodeGeneration>compute_10,sm_10;compute_20,sm_20;compute_30,sm_30</CodeGeneration>
+      <CodeGeneration>compute_20,sm_20;compute_30,sm_30</CodeGeneration>
       <Runtime>MTd</Runtime>
     </CudaCompile>
   </ItemDefinitionGroup>
