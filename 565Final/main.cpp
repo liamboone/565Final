@@ -17,7 +17,9 @@
 #include "cutil_inline.h"
 
 extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height, int3 * head, int target );
+extern "C" void reset( dim3 dimGrid, dim3 dimBlock, unsigned int width, unsigned int height );
 extern "C" void cudaInit( unsigned int width, unsigned int height );
+extern "C" void render( dim3 dimGrid, dim3 dimBlock, float4 * out, float3 campos, unsigned int width, unsigned int height );
 
 using namespace std;
 
@@ -29,11 +31,12 @@ void display2( );
 void reshape (int w, int h);
 void keyboard( unsigned char key, int, int );
 
-
-
+int window1, window2;
 int dwidth;
 int dheight;
 int player = 2;
+
+float3 cameye;
 
 int main( int argc, char* argv[] )
 {
@@ -70,7 +73,6 @@ int main( int argc, char* argv[] )
 
 	return 0;
 }
-int window1, window2;
 
 void initGL( int * argc, char * argv[] )
 {
@@ -104,11 +106,17 @@ void initGL( int * argc, char * argv[] )
 
 void display2(void)
 {
-	glClearColor(1.0, 0.0, 0.0, 1.0);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
-	printf("display2\n");
-	glFlush();
+	dim3 dimBlock(16, 16, 1);
+    dim3 dimGrid(dwidth / dimBlock.x, dheight / dimBlock.y, 1);
+	float4 * tmp = new float4[dwidth*dheight];
+
+	render( dimGrid, dimBlock, tmp, cameye, dwidth, dheight );
+
+	glDrawPixels( dwidth, dheight, GL_RGBA, GL_FLOAT, tmp );
+    
+	delete[] tmp;
+	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 void reshape (int w, int h)
@@ -149,6 +157,18 @@ void keyboard( unsigned char key, int, int )
 		   cout << "Tracking player 7" << endl;
 		   player = 7;
 		   break;
+	   case '[':
+		   theJumpoff->setAngle( theJumpoff->getAngle() - 1.0 );
+		   break;
+	   case ']':
+		   theJumpoff->setAngle( theJumpoff->getAngle() + 1.0 );
+		   break;
+	   case '{':
+		   theJumpoff->setAngle( theJumpoff->getAngle() - 5.0 );
+		   break;
+	   case '}':
+		   theJumpoff->setAngle( theJumpoff->getAngle() + 5.0 );
+		   break;
 	   default:
 		   player = 0;
 		   break;
@@ -163,14 +183,16 @@ void display()
     dim3 dimGrid(dwidth / dimBlock.x, dheight / dimBlock.y, 1);
 	float4 * depthRGBA = new float4[dwidth*dheight];
 
-	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), dwidth, dheight, &head, player );
+	reset( dimGrid, dimBlock, dwidth, dheight );
 
-	if( head.x == -1 || head.y == -1 || head.z == -1 )
+	for( int i = 1; i <= 7; i++ )
 	{
-	}
-	else
-	{
-		cout << "Head at [" << head.x << ", " << head.y << ", " << head.z << "]" << endl; 
+		process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), dwidth, dheight, &head, i );
+
+		if( head.x != -1 && head.y != -1 && head.z != -1 )
+		{
+			cout << "Player " << i << " Head @[" << head.x << ", " << head.y << ", " << head.z << "]" << endl; 
+		}
 	}
 
 	glDrawPixels( dwidth, dheight, GL_RGBA, GL_FLOAT, depthRGBA );

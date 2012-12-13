@@ -16,6 +16,9 @@ public:
 	long getWidth() { return m_depthWidth; }
 	long getHeight() { return m_depthHeight; }
 	float getXYScale() { return m_xyScale; }
+	
+	void setAngle( long degrees );
+	long getAngle( );
 
 	static const NUI_IMAGE_RESOLUTION cDepthResolution = NUI_IMAGE_RESOLUTION_640x480;
 

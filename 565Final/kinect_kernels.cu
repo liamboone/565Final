@@ -49,7 +49,23 @@ int getIndex( int x, int y, int width, int limx, int limy )
 }
 
 __global__
-void clear_k( float4 * color, int * warp, int * hough, int * edge, int * maximum, int * mmax, int3 * xyz, unsigned int width, unsigned int height )
+void clear_color_k( float4 * color, unsigned int width, unsigned int height )
+{
+	unsigned int x = blockIdx.x*blockDim.x + threadIdx.x;
+    unsigned int y = blockIdx.y*blockDim.y + threadIdx.y;
+
+	if( x >= width || y >= height )
+	{
+		return;
+	}
+
+	unsigned int cindex = (height-y-1)*width+x;
+	
+	color[cindex] = make_float4( 0.0 );
+}
+
+__global__
+void clear_k( int * warp, int * hough, int * edge, int * maximum, int * mmax, int3 * xyz, unsigned int width, unsigned int height )
 {
 	unsigned int x = blockIdx.x*blockDim.x + threadIdx.x;
     unsigned int y = blockIdx.y*blockDim.y + threadIdx.y;
@@ -73,7 +89,6 @@ void clear_k( float4 * color, int * warp, int * hough, int * edge, int * maximum
 	warp[cindex] = 3000;
 	hough[cindex] = 0;
 	edge[cindex] = 0;
-	color[cindex] = make_float4( 0.0 );
 }
 
 __global__
@@ -263,7 +278,7 @@ void process_depth_k( int * warp, unsigned short * raw, int * mmax, unsigned int
 		
 	int warpindex = getIndex( wpx, wpy, width, rWidth, rHeight );
 
-	if( warpindex >= 0 && target == player )
+	if( warpindex >= 0 && target == player && depth > 0 )
 	{
 		atomicMin( &(warp[warpindex]), (int)depth );
 		atomicMin( &(mmax[0]), wpx );
@@ -279,7 +294,7 @@ extern "C"
 void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height, int3 * xyz, int target )
 {
 	cudaMemcpy( dRAW, depthRAW,  width * height * sizeof( unsigned short ), cudaMemcpyHostToDevice ); cutilCheckMsg("RAW Depth Transfer");
-	clear_k			<<< dimGrid, dimBlock >>> ( dRGBA, dWARP, dHUFF, dEDGE, hmax, minmax, head, width, height );
+	clear_k			<<< dimGrid, dimBlock >>> ( dWARP, dHUFF, dEDGE, hmax, minmax, head, width, height ); cutilCheckMsg("Clear");
 	process_depth_k	<<< dimGrid, dimBlock >>> ( dWARP, dRAW, minmax, width, height, target ); cutilCheckMsg("Depth Process");
 	min_5x5_k		<<< dimGrid, dimBlock >>> ( dBUFF, dWARP, minmax, width, height ); cutilCheckMsg("Min filt");
 	max_5x5_k		<<< dimGrid, dimBlock >>> ( dWARP, dBUFF, minmax, width, height ); cutilCheckMsg("Max filt");
@@ -289,6 +304,12 @@ void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned sh
 	make_pretty_k	<<< dimGrid, dimBlock >>> ( dRGBA, dWARP, dEDGE, dHUFF, hmax, minmax, head, width, height ); cutilCheckMsg("Convert to Image");
 	cudaMemcpy( xyz, head, sizeof( int3 ), cudaMemcpyDeviceToHost ); cutilCheckMsg("XYZ Transfer");
 	cudaMemcpy( depthRGBA, dRGBA, width * height * sizeof( float4 ), cudaMemcpyDeviceToHost ); cutilCheckMsg("RGBA Depth Transfer");
+}
+
+extern "C" 
+void reset( dim3 dimGrid, dim3 dimBlock, unsigned int width, unsigned int height )
+{
+	clear_color_k	<<< dimGrid, dimBlock >>> ( dRGBA, width, height ); cutilCheckMsg("Reset");
 }
 
 extern "C" 

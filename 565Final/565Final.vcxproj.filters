@@ -34,5 +34,8 @@
     <CudaCompile Include="kinect_kernels.cu">
       <Filter>Source Files</Filter>
     </CudaCompile>
+    <CudaCompile Include="raymarch_kernels.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

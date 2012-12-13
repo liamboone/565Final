@@ -80,6 +80,7 @@
     <CudaCompile Include="kinect_kernels.cu">
       <FileType>Document</FileType>
     </CudaCompile>
+    <CudaCompile Include="raymarch_kernels.cu" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KinectBase.h" />
