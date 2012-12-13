@@ -34,9 +34,9 @@ void keyboard( unsigned char key, int, int );
 int window1, window2;
 int dwidth;
 int dheight;
-int player = 2;
+int player = 0;
 
-float3 cameye;
+float3 cameye = {0,0,10};
 
 int main( int argc, char* argv[] )
 {
@@ -83,6 +83,7 @@ void initGL( int * argc, char * argv[] )
 
 	glutDisplayFunc(display2);
 	glutReshapeFunc(reshape);
+	glutKeyboardFunc(keyboard);
 
     window2 = glutCreateWindow("Viewer");
     
@@ -109,9 +110,10 @@ void display2(void)
 	dim3 dimBlock(16, 16, 1);
     dim3 dimGrid(dwidth / dimBlock.x, dheight / dimBlock.y, 1);
 	float4 * tmp = new float4[dwidth*dheight];
-
-	render( dimGrid, dimBlock, tmp, cameye, dwidth, dheight );
-
+	if( player != 0 )
+	{
+		render( dimGrid, dimBlock, tmp, cameye, dwidth, dheight );
+	}
 	glDrawPixels( dwidth, dheight, GL_RGBA, GL_FLOAT, tmp );
     
 	delete[] tmp;
@@ -192,6 +194,12 @@ void display()
 		if( head.x != -1 && head.y != -1 && head.z != -1 )
 		{
 			cout << "Player " << i << " Head @[" << head.x << ", " << head.y << ", " << head.z << "]" << endl; 
+			if( i == player )
+			{
+				cameye.x = (cameye.x + (head.x - 217)/5.0)*0.5;
+				cameye.y = (cameye.y + (head.y - 157.5)/-3.0)*0.5;
+				cameye.z = (cameye.z + head.z / 100.0)*0.5;
+			}
 		}
 	}
 

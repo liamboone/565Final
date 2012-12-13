@@ -1,4 +1,4 @@
-﻿Build started 12/13/2012 5:24:11 AM.
+﻿Build started 12/13/2012 4:51:03 PM.
      1>Project "C:\Users\Liam\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\565Final.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -14,20 +14,20 @@
        Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
        CudaBuild:
          Compiling CUDA source file raymarch_kernels.cu...
-         cmd.exe /C "C:\Users\Liam\AppData\Local\Temp\tmp22200a381d1243899361ff1a0d072212.cmd"
+         cmd.exe /C "C:\Users\Liam\AppData\Local\Temp\tmp80b10fcec4bb4f53a75c1f6f51a5d83d.cmd"
          "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\raymarch_kernels.cu.obj" "C:\Users\Liam\Documents\GitHub\565Final\565Final\raymarch_kernels.cu"
          
          C:\Users\Liam\Documents\GitHub\565Final\565Final>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\raymarch_kernels.cu.obj" "C:\Users\Liam\Documents\GitHub\565Final\565Final\raymarch_kernels.cu" 
          raymarch_kernels.cu
-         tmpxft_000004f8_00000000-3_raymarch_kernels.compute_30.cudafe1.gpu
-         tmpxft_000004f8_00000000-7_raymarch_kernels.compute_30.cudafe2.gpu
+         tmpxft_00000df0_00000000-3_raymarch_kernels.compute_30.cudafe1.gpu
+         tmpxft_00000df0_00000000-7_raymarch_kernels.compute_30.cudafe2.gpu
          raymarch_kernels.cu
-         tmpxft_000004f8_00000000-0_raymarch_kernels.compute_20.cudafe1.gpu
-         tmpxft_000004f8_00000000-11_raymarch_kernels.compute_20.cudafe2.gpu
+         tmpxft_00000df0_00000000-0_raymarch_kernels.compute_20.cudafe1.gpu
+         tmpxft_00000df0_00000000-11_raymarch_kernels.compute_20.cudafe2.gpu
          raymarch_kernels.cu
          raymarch_kernels.cu
-         tmpxft_000004f8_00000000-3_raymarch_kernels.compute_30.cudafe1.cpp
-         tmpxft_000004f8_00000000-20_raymarch_kernels.compute_30.ii
+         tmpxft_00000df0_00000000-3_raymarch_kernels.compute_30.cudafe1.cpp
+         tmpxft_00000df0_00000000-20_raymarch_kernels.compute_30.ii
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
@@ -35,10 +35,13 @@
          Note: including math.h
          Note: including assert.h
          Note: including time.h
-     1>c:\users\liam\documents\github\565final\565final\main.cpp(161): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
-     1>c:\users\liam\documents\github\565final\565final\main.cpp(164): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
-     1>c:\users\liam\documents\github\565final\565final\main.cpp(167): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
-     1>c:\users\liam\documents\github\565final\565final\main.cpp(170): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(163): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(166): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(169): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(172): warning C4244: 'argument' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(199): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(200): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\liam\documents\github\565final\565final\main.cpp(201): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\wjboone\Documents\GitHub\565Final\565Final\freeglut\lib /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\Win32" Kinect10.lib cudart.lib cufft.lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\565Final.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Liam\Documents\GitHub\565Final\Debug\565Final.lib" /MACHINE:X86 Debug\kinect_kernels.cu.obj
          Debug\raymarch_kernels.cu.obj
@@ -55,4 +58,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:08.32
+Time Elapsed 00:00:10.16
