@@ -16,7 +16,7 @@
 #include <cudaGLHelper.h>
 #include "cutil_inline.h"
 
-extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height, float xyscale, int target );
+extern "C" void process_depth( dim3 dimGrid, dim3 dimBlock, float4 * depthRGBA, unsigned short * depthRAW, unsigned int width, unsigned int height, int3 * head, int target );
 extern "C" void cudaInit( unsigned int width, unsigned int height );
 
 using namespace std;
@@ -33,7 +33,7 @@ void keyboard( unsigned char key, int, int );
 
 int dwidth;
 int dheight;
-int player = 0;
+int player = 2;
 
 int main( int argc, char* argv[] )
 {
@@ -158,11 +158,20 @@ void keyboard( unsigned char key, int, int )
 void display()
 {
 	theJumpoff->NextFrame();
+	int3 head;
 	dim3 dimBlock(16, 16, 1);
     dim3 dimGrid(dwidth / dimBlock.x, dheight / dimBlock.y, 1);
 	float4 * depthRGBA = new float4[dwidth*dheight];
 
-	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), dwidth, dheight, theJumpoff->getXYScale(), player );
+	process_depth( dimGrid, dimBlock, depthRGBA, theJumpoff->getDepth(), dwidth, dheight, &head, player );
+
+	if( head.x == -1 || head.y == -1 || head.z == -1 )
+	{
+	}
+	else
+	{
+		cout << "Head at [" << head.x << ", " << head.y << ", " << head.z << "]" << endl; 
+	}
 
 	glDrawPixels( dwidth, dheight, GL_RGBA, GL_FLOAT, depthRGBA );
     

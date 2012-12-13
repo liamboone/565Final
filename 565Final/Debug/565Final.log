@@ -1,45 +1,18 @@
-﻿Build started 12/12/2012 10:13:11 PM.
+﻿Build started 12/13/2012 1:33:56 AM.
      1>Project "C:\Users\wjboone\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\565Final.unsuccessfulbuild".
+         Creating "Debug\565Final.unsuccessfulbuild" because "AlwaysCreate" was specified.
        AddCudaCompileDeps:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /I. /FIcuda_runtime.h /c C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu 
+       Skipping target "AddCudaCompileDeps" because all output files are up-to-date with respect to the input files.
        AddCudaCompilePropsDeps:
        Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
        CudaBuild:
-         Compiling CUDA source file kinect_kernels.cu...
-         cmd.exe /C "C:\Users\wjboone\AppData\Local\Temp\9a5c49e781e54c40bd00481271a71c8d.cmd"
-         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu"
-         
-         C:\Users\wjboone\Documents\GitHub\565Final\565Final>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu" 
-         kinect_kernels.cu
-     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
-         
-         tmpxft_0000127c_00000000-3_kinect_kernels.compute_20.cudafe1.gpu
-         tmpxft_0000127c_00000000-7_kinect_kernels.compute_20.cudafe2.gpu
-         kinect_kernels.cu
-     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
-         
-         tmpxft_0000127c_00000000-0_kinect_kernels.compute_30.cudafe1.gpu
-         tmpxft_0000127c_00000000-11_kinect_kernels.compute_30.cudafe2.gpu
-         kinect_kernels.cu
-     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
-         
-         kinect_kernels.cu
-     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
-         
-         tmpxft_0000127c_00000000-3_kinect_kernels.compute_20.cudafe1.cpp
-         tmpxft_0000127c_00000000-20_kinect_kernels.compute_20.ii
+       Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
        ClCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\wjboone\Documents\GitHub\565Final\565Final\freeglut\lib /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\lib\Win32" /LIBPATH:"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\lib\Win32" Kinect10.lib cudart.lib cufft.lib freeglut.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\565Final.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.lib" /MACHINE:X86 Debug\kinect_kernels.cu.obj
-         Debug\KinectBase.obj
-         Debug\main.obj
-     1>KinectBase.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         All outputs are up-to-date.
          565Final.vcxproj -> C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\wjboone\Documents\GitHub\565Final\Debug\565Final.exe;#1" /manifest Debug\565Final.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\565Final.unsuccessfulbuild".
          Touching "Debug\565Final.lastbuildstate".
@@ -47,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:11.12
+Time Elapsed 00:00:00.08
