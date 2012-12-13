@@ -1,39 +1,35 @@
-﻿Build started 12/12/2012 6:19:00 PM.
+﻿Build started 12/12/2012 10:13:11 PM.
      1>Project "C:\Users\wjboone\Documents\GitHub\565Final\565Final\565Final.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\565Final.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\565Final.unsuccessfulbuild".
        AddCudaCompileDeps:
-       Skipping target "AddCudaCompileDeps" because all output files are up-to-date with respect to the input files.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /I./ /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" /I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include" /I. /FIcuda_runtime.h /c C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu 
        AddCudaCompilePropsDeps:
-         Found "CudaToolkitCustomDir".
-         Found "AdditionalDeps".
-         Found "CompileOut".
-         Found "Include".
-         Found "Keep".
-         Found "KeepDir".
-         Found "NvccCompilation".
-         Found "NvccPath".
-         Found "RequiredIncludes".
-         Found "TargetMachinePlatform".
-         Found "CInterleavedPTX".
-         Found "CodeGeneration".
-         Found "GPUDebugInfo".
-         Found "MaxRegCount".
-         Found "PtxAsOptionV".
-         Found "AdditionalCompilerOptions".
-         Found "Defines".
-         Found "Emulation".
-         Found "HostDebugInfo".
-         Found "FastMath".
-         Found "Optimization".
-         Found "Runtime".
-         Found "RuntimeChecks".
-         Found "TypeInfo".
-         Found "Warning".
-         Found "AdditionalOptions".
-         Found "CommandLineTemplate".
+       Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
        CudaBuild:
-       Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
+         Compiling CUDA source file kinect_kernels.cu...
+         cmd.exe /C "C:\Users\wjboone\AppData\Local\Temp\9a5c49e781e54c40bd00481271a71c8d.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu"
+         
+         C:\Users\wjboone\Documents\GitHub\565Final\565Final>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2010 -ccbin "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin" -I"./" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\C\common\inc" -I"C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.2\shared\inc" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v4.2\include"  -G  --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g    -Xcompiler "/EHsc /nologo /Od /Zi  /MTd  " -o "Debug\kinect_kernels.cu.obj" "C:\Users\wjboone\Documents\GitHub\565Final\565Final\kinect_kernels.cu" 
+         kinect_kernels.cu
+     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
+         
+         tmpxft_0000127c_00000000-3_kinect_kernels.compute_20.cudafe1.gpu
+         tmpxft_0000127c_00000000-7_kinect_kernels.compute_20.cudafe2.gpu
+         kinect_kernels.cu
+     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
+         
+         tmpxft_0000127c_00000000-0_kinect_kernels.compute_30.cudafe1.gpu
+         tmpxft_0000127c_00000000-11_kinect_kernels.compute_30.cudafe2.gpu
+         kinect_kernels.cu
+     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
+         
+         kinect_kernels.cu
+     1>C:/Users/wjboone/Documents/GitHub/565Final/565Final/kinect_kernels.cu(78): warning : variable "fdepth" was declared but never referenced
+         
+         tmpxft_0000127c_00000000-3_kinect_kernels.compute_20.cudafe1.cpp
+         tmpxft_0000127c_00000000-20_kinect_kernels.compute_20.ii
        ClCompile:
          All outputs are up-to-date.
        Link:
@@ -51,4 +47,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.65
+Time Elapsed 00:00:11.12
